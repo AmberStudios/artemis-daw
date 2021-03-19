@@ -1,0 +1,14 @@
+{
+  "tracks" : [
+    "leadGuitar" : {
+      "name" : "Lead Guitar",
+      "filePath" : "./tracks/leadGuitar.json",
+      "type" : "rec"
+    },
+    "synth" : {
+      "name" : "Synth",
+      "filePath" : "./tracks/synth.json",
+      "type" : "midi"
+    }
+  ]
+}
