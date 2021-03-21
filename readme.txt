@@ -5,6 +5,10 @@ Stage: Pre-alpha
 Lang: Rust
 Build: Not ready for a legit build lol
 
+[Requirements]
+Latest stable Rust version
+Cargo
+  
 [Changelog]
 
 3/19/2021 - Repository created, a few lines of code added.
