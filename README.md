@@ -2,11 +2,14 @@ Artemis DAW - A DAW with emphasis on simplicity
 
 # Info
 **Stage**: Pre-alpha
+
 **Lang**: Rust
+
 **Build**: Not ready for a legit build lol
 
 # Requirements
 Latest stable Rust version
+
 Cargo
   
 # Changelog
