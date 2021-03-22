@@ -10,4 +10,4 @@ edition = "2018"
 
 [[bin]]
 name = "artemis-daw"
-path = "main.rs"
+path = "src/main.rs"
