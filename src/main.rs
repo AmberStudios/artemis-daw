@@ -32,12 +32,18 @@ pub mod file {
 
         fs::write(filename, "file write complete")?;
         Ok(())
+    }
 
+    pub fn remove() -> std::io::Result<()> {
+        fs::remove_file("a.txt")?;
+        Ok(())
     }
 }
 
 fn init() {
+    file::remove();
     file::read();
+    file::write();
     init_window();
 }
 fn init_window() {
