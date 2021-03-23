@@ -8,6 +8,8 @@ edition = "2018"
 
 [dependencies]
 
+druid = "0.7.0"
+
 [[bin]]
 name = "artemis-daw"
 path = "src/main.rs"
