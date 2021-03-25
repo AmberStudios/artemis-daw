@@ -1,0 +1,1 @@
+These themes are copied from my system's .theme folder. GTK uses css files for styling. The css file you want is in the gtk3 directory. These themes are there for a learning experience ONLY, as other people have made these. We will make our own theme from scratch to use for this project. These themes will serve as placeholders and references until then.

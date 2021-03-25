@@ -1,34 +1,48 @@
 //deps
+
 use std::fs;
 
 fn main() {
-    init();
-    gui::start();
+    //init();
+    gui::app();
 }
 
 pub mod gui {
-    use druid::widget::{Button, Flex, Label};
-    use druid::{AppLauncher, LocalizedString, PlatformError, Widget, WidgetExt, WindowDesc};
+    extern crate gtk;
+    extern crate gio;
 
-    pub fn start() -> Result<(), PlatformError> {
-        let main_window = WindowDesc::new(ui_builder);
-        let data = 0_u32;
-        AppLauncher::with_window(main_window)
-        .use_simple_logger()
-        .launch(data)
+    use gtk::prelude::*;
+    use gio::prelude::*;
+
+    use gtk::{Builder, Window};
+
+    use std::path::Path;
+
+    pub fn app() {
+
+        gtk::init().unwrap_or_else(|_| panic!("Failed to initialize GTK."));
+
+        //load the glade file to use as gui
+        let gui_src = include_str!("../gui/main.glade");
+
+        let gui_path = Path::new("gui/main.glade");
+
+        let builder = Builder::from_string(gui_src);
+
+        //create the variable "window" with the type: "Window"
+        let window: Window = builder.get_object("main_window").unwrap();
+
+        //get close event
+        window.connect_delete_event(|_, _| {
+            gtk::main_quit();
+            Inhibit(true)
+        });
+
+        window.show_all();
+        gtk::main();
+
     }
 
-    fn ui_builder() -> impl Widget<u32> {
-        // The label text will be computed dynamically based on the current locale and count
-        let text =
-        LocalizedString::new("hello-counter").with_arg("count", |data: &u32, _env| (*data).into());
-        let label = Label::new(text).padding(5.0).center();
-        let button = Button::new("increment")
-        .on_click(|_ctx, data, _env| *data += 1)
-        .padding(5.0);
-
-        Flex::column().with_child(label).with_child(button)
-    }
 }
 
 //so, the goal is to get file i/o
