@@ -16,8 +16,3 @@ features = ["v3_16"]
 [dependencies.gio]
 version = ""
 features = ["v2_44"]
-
-
-[[bin]]
-name = "artemis-daw"
-path = "src/main.rs"

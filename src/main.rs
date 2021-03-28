@@ -3,7 +3,7 @@
 use std::fs;
 
 fn main() {
-    //init();
+    init();
     gui::app();
 }
 
@@ -21,6 +21,17 @@ pub mod gui {
     pub fn app() {
 
         gtk::init().unwrap_or_else(|_| panic!("Failed to initialize GTK."));
+
+//I can't get it to load the theme
+
+
+/*        let gui_theme = include_str!("../gui/theme/quartz-oneplus/gtk-3.0/gtk.css");
+
+        let theme = gtk::CssProviderExt::load_from_file(gui_theme, &p);
+
+        gtk::StyleContext::add_provider_for_screen(&gdk::auto::screen::Screen,theme,1);
+
+*/
 
         //load the glade file to use as gui
         let gui_src = include_str!("../gui/main.glade");
@@ -40,45 +51,16 @@ pub mod gui {
 
         window.show_all();
         gtk::main();
-
     }
 
 }
 
-//so, the goal is to get file i/o
-
-//mod stands for module, which is basically a class. adding pub at the beginning makes it global
-pub mod file {
-    use std::fs;
-    use std::io;
-
-    pub fn read() {
-        //here is some nice copypasta straight from the docs
-
-        let filename = "etc/layout.conf";
-
-        println!("In file {}", filename);
-
-        let contents = fs::read_to_string(filename)
-            //throw error if file not found/not readable
-            .expect("[artemis file i/o] Error while reading file");
-
-        println!("With text:\n{}", contents);
-    }
-    pub fn write() -> std::io::Result<()> {
-        let filename = "logs/test.log";
-
-        fs::write(filename, "file write complete")?;
-        Ok(())
-    }
-
-    pub fn remove() -> std::io::Result<()> {
-        fs::remove_file("a.txt")?;
-        Ok(())
-    }
-}
+//this loads the file "file.rs". Meaning that you can import modules from other files.
+mod file;
 
 fn init() {
+
+
     file::remove();
     file::read();
     file::write();
