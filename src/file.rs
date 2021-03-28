@@ -14,10 +14,12 @@ pub fn read() {
 
     println!("With text:\n{}", contents);
 }
+
 pub fn remove() -> std::io::Result<()> {
     fs::remove_file("a.txt")?;
     Ok(())
 }
+
 pub fn write() -> std::io::Result<()>
 {
     let filename = "logs/test.log";
