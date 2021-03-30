@@ -8,13 +8,14 @@ fn main() {
 }
 
 pub mod gui {
-    extern crate gtk;
+    extern crate gdk;
     extern crate gio;
+    //extern crate glib;
+    extern crate gtk;
 
     use gtk::prelude::*;
     use gio::prelude::*;
-
-    use gtk::{Builder, Window};
+    use gtk::{Builder, Window, CssProvider, StyleContext, STYLE_PROVIDER_PRIORITY_APPLICATION};
 
     use std::path::Path;
 
@@ -22,16 +23,18 @@ pub mod gui {
 
         gtk::init().unwrap_or_else(|_| panic!("Failed to initialize GTK."));
 
-//I can't get it to load the theme
+    let gui_theme = include_str!("../gui/theme/quartz-oneplus/gtk-3.0/gtk.css");
+//load the theme
+    let provider = gtk::CssProvider::new();
+    provider
+        .load_from_data(gui_theme.as_bytes())
+        .expect("Failed to load CSS");
 
-
-/*        let gui_theme = include_str!("../gui/theme/quartz-oneplus/gtk-3.0/gtk.css");
-
-        let theme = gtk::CssProviderExt::load_from_file(gui_theme, &p);
-
-        gtk::StyleContext::add_provider_for_screen(&gdk::auto::screen::Screen,theme,1);
-
-*/
+    gtk::StyleContext::add_provider_for_screen(
+        &gdk::Screen::get_default().expect("Error initializing gtk css provider."),
+        &provider,
+        gtk::STYLE_PROVIDER_PRIORITY_APPLICATION,
+    );
 
         //load the glade file to use as gui
         let gui_src = include_str!("../gui/main.glade");
@@ -59,7 +62,6 @@ pub mod gui {
 mod file;
 
 fn init() {
-
 
     file::remove();
     file::read();

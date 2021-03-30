@@ -8,11 +8,32 @@ edition = "2018"
 
 [dependencies]
 #druid = "0.7.0"
+#chrono = "0.4"
+#futures = "0.3"
+#atk = "^0"
+#glib-sys = "^0"
+#gobject-sys = "^0"
+#glib = "^0"
+gio = "0.9.1"
+gdk = "0.13.2"
+#gdk-pixbuf = "^0"
+gtk = "0.9.2"
+#once_cell = "^0"
+#pango = "^0"
+#pangocairo = "^0"
+#cairo-rs = { version = "^0", features = ["png"] }
 
-[dependencies.gtk]
-version = "0.9.0"
-features = ["v3_16"]
+#[features]
+#default = ["gtk_3_22_30"]
+#gtk_3_18 = ["gtk/v3_18", "gdk-pixbuf/v2_32", "gdk/v3_18", "gio/v2_46", "glib/v2_46", "pango/v1_38"] #for CI tools
+#gtk_3_22_30 = ["gtk_3_18", "gtk/v3_22_30", "gdk-pixbuf/v2_36", "gdk/v3_22", "gio/v2_56", "glib/v2_56", "pango/v1_42"] #for CI tools
+#gtk_3_24 = ["gtk/v3_24", "gdk/v3_24", "gio/v2_58"] #for CI tools
 
-[dependencies.gio]
-version = ""
-features = ["v2_44"]
+
+#[dependencies.gtk]
+#version = "0.9.0"
+#features = ["v3_16"]
+
+#[dependencies.gio]
+#version = ""
+#features = ["v2_44"]
