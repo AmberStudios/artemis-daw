@@ -1,0 +1,27 @@
+window label {
+  background-color: transparent;
+}
+
+/* I hate curved borders in creative-oriented
+ programs, maybe we could make an option to
+ enable border curve??*/
+
+button {
+  border-radius: 0px;
+  border-width: 0px;
+  background-color: #898989;
+}
+
+button:hover {
+  background-color: #0274d9;
+}
+
+/*button while it's clicked*/
+
+button:active {
+  background-color: #0274d9;
+}
+
+checkbutton {
+  background-color:#3085a9;
+}

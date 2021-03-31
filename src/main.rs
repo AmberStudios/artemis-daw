@@ -23,7 +23,7 @@ pub mod gui {
 
         gtk::init().unwrap_or_else(|_| panic!("Failed to initialize GTK."));
 
-    let gui_theme = include_str!("../gui/theme/quartz-oneplus/gtk-3.0/gtk.css");
+    let gui_theme = include_str!("../gui/theme/artemis-theme/gtk3.css");
 //load the theme
     let provider = gtk::CssProvider::new();
     provider
