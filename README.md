@@ -11,12 +11,12 @@ Artemis DAW - An open source DAW with emphasis on simplicity
 - Stable rust toolchain
 - GTK 3
 - Either: A linux distro + Glade, or a Windows install + unnatural amounts of patience + Glade + Msys2
+(**NOTICE**: the first option is easiest)
 
 # Build instructions:
 it is rust and rust is supreme.
 for this reason, **cd** to the project dir and just do **cargo run**
-
-Cargo
+yay you sucessfully built it. If it didn't work, you probably had some issues with Msys2.
   
 # Changelog
 
